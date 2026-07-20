@@ -17,7 +17,7 @@ export const estudio = {
    * Logo del estudio. Deja '' para mostrar el nombre tipográfico (wordmark).
    * El archivo actual no tiene canal alfa, por eso se recorta en círculo.
    */
-  logo: '/abogados-litoral-central-logo-150x150.webp',
+  logo: '/logo-blanco-transparente.png',
 
   // --- Copy del hero (editable sin tocar componentes) ---
   hero: {
