@@ -32,7 +32,7 @@
   font-size: var(--fs-small);
   color: var(--crema-suave);
 }
-@media (pointer: coarse) {
+@media (max-width: 899px) {
   .cta__datos a {
     display: inline-flex;
     align-items: center;
