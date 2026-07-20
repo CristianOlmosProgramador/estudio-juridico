@@ -1,0 +1,37 @@
+.logo { display: inline-flex; align-items: center; }
+
+.logo__img {
+  width: auto;
+  object-fit: contain;
+}
+
+.logo--header .logo__img { height: 52px; }
+.logo--footer .logo__img { height: 72px; }
+
+/* ---------- Wordmark de respaldo ---------- */
+.logo__wordmark {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo__marca {
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--fondo);
+  letter-spacing: 0.01em;
+}
+.logo--header .logo__marca { font-size: 1.5rem; }
+.logo--footer .logo__marca { font-size: 2rem; }
+
+.logo__sub {
+  font-size: var(--fs-micro);
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--dorado);
+}
+.logo--header .logo__sub { font-size: 0.6rem; }
+
+@media (max-width: 520px) {
+  .logo--header .logo__img { height: 44px; }
+}

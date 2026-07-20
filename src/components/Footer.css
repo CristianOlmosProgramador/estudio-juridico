@@ -11,20 +11,6 @@
 }
 
 /* ---------- Marca ---------- */
-.footer__logo {
-  font-family: var(--serif);
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--fondo);
-  line-height: 1;
-}
-.footer__sub {
-  font-size: var(--fs-micro);
-  letter-spacing: var(--track-eyebrow);
-  text-transform: uppercase;
-  color: var(--dorado);
-  margin-top: 0.25rem;
-}
 .footer__tagline {
   margin-top: var(--sp-3);
   font-family: var(--serif);

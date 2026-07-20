@@ -25,22 +25,8 @@
 /* ---------- Logo ---------- */
 .header__logo {
   display: flex;
-  flex-direction: column;
-  line-height: 1.1;
+  align-items: center;
   margin-right: auto;
-}
-.header__logo-marca {
-  font-family: var(--serif);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--fondo);
-  letter-spacing: 0.01em;
-}
-.header__logo-sub {
-  font-size: 0.6rem;
-  letter-spacing: var(--track-eyebrow);
-  text-transform: uppercase;
-  color: var(--dorado);
 }
 
 /* ---------- Nav escritorio ---------- */

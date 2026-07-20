@@ -1,41 +1,51 @@
-/* Discreto a propósito: navy con filete dorado, no el verde corporativo. */
+/* Botón circular verde WhatsApp, visible desde el primer scroll. */
 .wsp {
   position: fixed;
   right: clamp(1rem, 3vw, 2rem);
   bottom: clamp(1rem, 3vw, 2rem);
   z-index: var(--z-flotante);
 
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.75rem 1.1rem;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
 
-  background: var(--navy);
-  color: var(--fondo);
-  border: 1px solid var(--dorado-suave);
-  border-radius: var(--radio);
-  box-shadow: var(--sombra-alta);
+  background: #25D366;
+  color: #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(20, 33, 58, 0.28);
 
-  font-size: var(--fs-small);
-  font-weight: 500;
-  letter-spacing: 0.04em;
-
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(12px);
-  transition: opacity var(--t-media) var(--ease),
-              transform var(--t-media) var(--ease),
-              visibility var(--t-media) var(--ease),
-              border-color var(--t-rapida) var(--ease);
+  transition: transform var(--t-rapida) var(--ease),
+              box-shadow var(--t-rapida) var(--ease);
 }
 
-.wsp--visible { opacity: 1; visibility: visible; transform: none; }
+.wsp:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+}
 
-.wsp:hover { border-color: var(--dorado); }
-.wsp svg { color: var(--dorado); flex-shrink: 0; }
+.wsp svg { position: relative; z-index: 1; }
 
-/* En móvil solo el icono, para no tapar contenido */
+/* Aro que late hacia afuera, detrás del botón */
+.wsp__pulso {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #25D366;
+  animation: wsp-pulso 2.2s var(--ease) infinite;
+}
+
+@keyframes wsp-pulso {
+  0%   { transform: scale(1);    opacity: 0.55; }
+  70%  { transform: scale(1.75); opacity: 0; }
+  100% { transform: scale(1.75); opacity: 0; }
+}
+
+/* Respeta a quien pidió menos movimiento: el botón queda, el latido no. */
+@media (prefers-reduced-motion: reduce) {
+  .wsp__pulso { animation: none; opacity: 0; }
+}
+
 @media (max-width: 520px) {
-  .wsp { padding: 0.85rem; }
-  .wsp__texto { display: none; }
+  .wsp { width: 54px; height: 54px; }
 }

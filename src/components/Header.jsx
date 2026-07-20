@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { estudio, whatsappUrl } from '../config/estudio.js'
+import Logo from './Logo.jsx'
 import './Header.css'
 
 const enlaces = [
@@ -31,9 +32,13 @@ export default function Header() {
   return (
     <header className={`header ${compacto ? 'header--compacto' : ''}`}>
       <div className="header__inner contenedor">
-        <a href="#inicio" className="header__logo" onClick={() => setMenuAbierto(false)}>
-          <span className="header__logo-marca">{estudio.nombreCorto}</span>
-          <span className="header__logo-sub">Estudio Jurídico</span>
+        <a
+          href="#inicio"
+          className="header__logo"
+          aria-label={`${estudio.nombre} — ir al inicio`}
+          onClick={() => setMenuAbierto(false)}
+        >
+          <Logo variante="header" />
         </a>
 
         <nav className="header__nav" aria-label="Navegación principal">

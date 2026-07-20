@@ -1,5 +1,6 @@
 import { estudio } from '../config/estudio.js'
 import { areas } from '../data/areas.js'
+import Logo from './Logo.jsx'
 import './Footer.css'
 
 const nombresRedes = { instagram: 'Instagram', linkedin: 'LinkedIn', facebook: 'Facebook' }
@@ -11,8 +12,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="contenedor footer__grid">
         <div className="footer__marca">
-          <p className="footer__logo">{estudio.nombreCorto}</p>
-          <p className="footer__sub">Estudio Jurídico</p>
+          <Logo variante="footer" />
           <p className="footer__tagline">{estudio.tagline}</p>
         </div>
 

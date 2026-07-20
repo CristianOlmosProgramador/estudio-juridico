@@ -5,7 +5,20 @@ export default function Hero() {
   const { hero } = estudio
 
   return (
-    <section className="hero" id="inicio">
+    <section className={`hero ${hero.imagen ? 'hero--con-imagen' : ''}`} id="inicio">
+      {hero.imagen && (
+        <div className="hero__fondo">
+          {/* fetchpriority alto: es la imagen LCP de la página */}
+          <img
+            className="hero__img"
+            src={hero.imagen}
+            alt={hero.imagenAlt}
+            fetchPriority="high"
+            decoding="async"
+          />
+        </div>
+      )}
+
       <div className="hero__inner contenedor">
         <p className="hero__eyebrow">
           <span className="hero__eyebrow-linea" />
