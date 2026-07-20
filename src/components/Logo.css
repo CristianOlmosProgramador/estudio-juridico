@@ -7,8 +7,8 @@
   background: transparent;
 }
 
-.logo--header .logo__img { height: 54px; }
-.logo--footer .logo__img { height: 76px; }
+.logo--header .logo__img { height: 72px; }
+.logo--footer .logo__img { height: 104px; }
 
 /* ---------- Wordmark de respaldo ---------- */
 .logo__wordmark {
@@ -35,5 +35,5 @@
 .logo--header .logo__sub { font-size: 0.6rem; }
 
 @media (max-width: 520px) {
-  .logo--header .logo__img { height: 44px; }
+  .logo--header .logo__img { height: 60px; }
 }
