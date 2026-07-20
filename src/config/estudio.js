@@ -23,10 +23,10 @@ export const estudio = {
   hero: {
     eyebrow: 'Abogados · Litoral Central',
     // El titular se corta en dos para controlar el quiebre de línea.
-    titulo: 'La defensa de sus derechos',
-    tituloAcento: 'exige rigor, no promesas.',
+    titulo: 'Tu Estudio Jurídico',
+    tituloAcento: 'de Confianza',
     bajada:
-      'Representación legal para personas y empresas en el litoral central. Analizamos su caso con franqueza y definimos una estrategia clara desde la primera reunión.',
+      'En Abogados en el Litoral Central, cada caso recibe una atención personalizada y profesional. Entregamos soluciones legales integrales con transparencia, ética y dedicación en Valparaíso, Viña del Mar, Concón y Quintero.',
 
     /**
      * Foto del hero, a sangre completa detrás del titular.

@@ -62,6 +62,44 @@ const trazos = {
       <path d="M12 3v6M4.5 16.5l5-2.5M19.5 16.5l-5-2.5" />
     </>
   ),
+  ubicacion: (
+    <>
+      <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1116 0z" />
+      <circle cx="12" cy="10" r="2.5" />
+    </>
+  ),
+  telefono: <path d="M5 4h4l2 5-2.5 1.5a15 15 0 005 5L15 13l5 2v4c0 .6-.4 1-1 1C10.7 20 4 13.3 4 5c0-.6.4-1 1-1z" />,
+  correo: (
+    <>
+      <rect x="3" y="5" width="18" height="14" rx="1" />
+      <path d="M3 7l9 7 9-7" />
+    </>
+  ),
+  reloj: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 2" />
+    </>
+  ),
+  whatsapp: (
+    <>
+      <path d="M20 11.5a8 8 0 01-11.7 7.1L4 20l1.4-4.1A8 8 0 1120 11.5z" />
+      <path d="M9 8.5c.5 3 2 4.5 5.5 6l1-1.5" />
+    </>
+  ),
+  facebook: <path d="M14 21v-8h3l.5-3H14V8.5c0-1 .3-1.5 1.7-1.5H18V4.2c-.7-.1-1.5-.2-2.5-.2-2.7 0-4.5 1.6-4.5 4.5V10H8v3h3v8" />,
+  instagram: (
+    <>
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none" />
+    </>
+  ),
+  linkedin: (
+    <>
+      <path d="M6 9v10M6 5.5v.5M10 19v-10M10 13c1-2.5 6-3 6 1v5M18 19v-6" />
+    </>
+  ),
 }
 
 export default function Icono({ nombre, tam = 28, className = '' }) {
