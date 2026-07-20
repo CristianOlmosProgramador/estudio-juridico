@@ -1,0 +1,4 @@
+# El original del hero solo sirve de fuente para `npm run img`.
+# Se publican únicamente las variantes WebP que genera.
+public/hero.png
+scripts
