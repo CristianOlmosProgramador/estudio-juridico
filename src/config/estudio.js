@@ -14,7 +14,7 @@ export const estudio = {
    * Sube el archivo a /public/logo.png (idealmente PNG con fondo transparente,
    * ~400px de alto). Si la ruta falla, vuelve solo al wordmark.
    */
-  logo: '/logo.png',
+  logo: '/abogados-litoral-central-logo-150x150.webp',
 
   // --- Copy del hero (editable sin tocar componentes) ---
   hero: {
@@ -26,12 +26,15 @@ export const estudio = {
       'Representación legal de excelencia para personas y empresas. Analizamos su caso con franqueza y definimos una estrategia clara desde la primera reunión.',
 
     /**
-     * Imagen de fondo del hero. Deja '' para volver al hero navy sólido.
-     * Se le aplica un duotono navy + oscurecimiento, así que conviene una
-     * foto con horizonte despejado y siluetas legibles.
+     * Foto del hero, enmarcada junto al titular (no a sangre completa).
+     * Deja '' para volver al hero navy sólido, sin imagen.
+     *
+     * Proporción ideal: vertical, entre 3:4 y 4:5.
+     * Resolución mínima recomendada: 1000px de ancho. La actual es de 500px,
+     * suficiente para el marco pero no para un fondo a sangre completa.
      */
-    imagen: '/hero.jpg',
-    imagenAlt: 'Equipo de abogados caminando por la costa del litoral central',
+    imagen: '/hero.webp',
+    imagenAlt: 'Equipo de abogados reunido frente al mar en el litoral central',
   },
 
   // --- Contacto ---

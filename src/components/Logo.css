@@ -1,12 +1,18 @@
 .logo { display: inline-flex; align-items: center; }
 
+/* El archivo del logo es un cuadrado sin transparencia: lo recortamos en
+   círculo para que no aparezca un recuadro blanco sobre el fondo navy.
+   Si más adelante llega un PNG con alfa, basta con quitar border-radius. */
 .logo__img {
   width: auto;
-  object-fit: contain;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  background: var(--blanco);
 }
 
-.logo--header .logo__img { height: 52px; }
-.logo--footer .logo__img { height: 72px; }
+.logo--header .logo__img { height: 54px; }
+.logo--footer .logo__img { height: 76px; }
 
 /* ---------- Wordmark de respaldo ---------- */
 .logo__wordmark {
