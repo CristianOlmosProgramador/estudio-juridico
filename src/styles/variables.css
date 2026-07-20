@@ -21,8 +21,11 @@
   --dorado-suave:  rgba(201, 162, 75, 0.30);
 
   /* ---------- Tipografía ---------- */
-  --serif: 'Cormorant Garamond', 'Times New Roman', serif;
-  --sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Fraunces: serif variable con ejes ópticos; su carácter aparece en los
+     tamaños grandes. Archivo: grotesca editorial, con más personalidad que
+     una neo-grotesca neutra tipo Inter. */
+  --serif: 'Fraunces', 'Georgia', serif;
+  --sans:  'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   /* Escala fluida: mobile-first, crece con el viewport */
   --fs-display: clamp(2.75rem, 7vw, 5.25rem);   /* hero */

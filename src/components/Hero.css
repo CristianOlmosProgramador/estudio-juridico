@@ -182,7 +182,11 @@
   .hero__titulo { max-width: 13ch; }
   .hero__bajada { max-width: 100%; }
   .hero__acciones { margin-top: var(--sp-4); }
-  .hero__acciones .btn { width: 100%; }
+
+  /* En móvil el CTA del hero se omite: el botón flotante de WhatsApp está
+     siempre visible y la misma acción vive en el menú. Para reponerlo,
+     borra esta regla. */
+  .hero__acciones .btn { display: none; }
   .hero__scroll { display: none; }
 }
 

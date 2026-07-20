@@ -2,11 +2,13 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: var(--sp-2);
   padding: var(--sp-4) var(--sp-3) var(--sp-5);
   background: var(--blanco);
   border: 1px solid var(--linea);
   border-radius: var(--radio);
+  overflow: hidden;
   transition: transform var(--t-media) var(--ease),
               box-shadow var(--t-media) var(--ease),
               border-color var(--t-media) var(--ease);
@@ -18,39 +20,58 @@
   border-color: var(--dorado-suave);
 }
 
-.area__head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--sp-2);
-  padding-bottom: var(--sp-2);
-  border-bottom: 1px solid var(--linea);
-}
-
-.area__num {
-  font-family: var(--sans);
-  font-size: var(--fs-micro);
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  color: var(--dorado);
-  font-variant-numeric: tabular-nums;
-}
-
-.area__icono {
+/* ---------- Numeral fantasma ---------- */
+.area__ghost {
+  position: absolute;
+  top: -0.28em;
+  right: 0.06em;
+  font-family: var(--serif);
+  font-size: 7rem;
+  font-weight: 600;
+  line-height: 1;
   color: var(--tinta);
-  opacity: 0.55;
+  opacity: 0.05;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
   transition: opacity var(--t-media) var(--ease),
               color var(--t-media) var(--ease);
 }
-.area:hover .area__icono { opacity: 1; color: var(--dorado); }
+.area:hover .area__ghost { opacity: 0.11; color: var(--dorado); }
+
+/* ---------- Icono: ahora es el ancla visual de la tarjeta ---------- */
+.area__icono-caja {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: var(--sp-2);
+  border: 1px solid var(--dorado-suave);
+  border-radius: var(--radio);
+  background: var(--fondo);
+  color: var(--dorado);
+  transition: background var(--t-media) var(--ease),
+              color var(--t-media) var(--ease),
+              border-color var(--t-media) var(--ease);
+}
+
+/* Al hover la caja se invierte: navy sólido con el trazo dorado encima */
+.area:hover .area__icono-caja {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--dorado);
+}
+
+.area__icono { display: block; }
 
 .area__titulo {
+  position: relative;
   font-size: var(--fs-h3);
   font-weight: 600;
   text-wrap: balance;
 }
 
 .area__desc {
+  position: relative;
   font-size: 0.9375rem;
   color: var(--gris);
   line-height: 1.65;
@@ -59,7 +80,7 @@
 /* Filete inferior que se dibuja de izquierda a derecha */
 .area__filete {
   position: absolute;
-  left: 0; bottom: -1px;
+  left: 0; bottom: 0;
   width: 100%; height: 2px;
   background: var(--dorado);
   transform: scaleX(0);

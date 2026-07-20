@@ -4,15 +4,16 @@ import './AreaCard.css'
 export default function AreaCard({ area }) {
   return (
     <article className="area">
-      <header className="area__head">
-        <span className="area__num">{area.numero}</span>
-        <Icono nombre={area.icono} className="area__icono" />
-      </header>
+      {/* Numeral fantasma: recurso editorial, decorativo */}
+      <span className="area__ghost" aria-hidden="true">{area.numero}</span>
+
+      <span className="area__icono-caja" aria-hidden="true">
+        <Icono nombre={area.icono} tam={30} className="area__icono" />
+      </span>
 
       <h3 className="area__titulo">{area.nombre}</h3>
       <p className="area__desc">{area.descripcion}</p>
 
-      {/* Filete dorado que se dibuja al hover */}
       <span className="area__filete" aria-hidden="true" />
     </article>
   )
