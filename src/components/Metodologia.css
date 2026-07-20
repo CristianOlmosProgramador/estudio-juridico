@@ -1,0 +1,68 @@
+.metodologia {
+  background: var(--navy);
+  color: var(--fondo);
+}
+
+.eyebrow--claro { color: var(--gris-claro); }
+.eyebrow--claro .eyebrow__linea { background: var(--linea-oscura); }
+
+.metodologia__cabecera { margin-bottom: var(--sp-6); }
+.metodologia__titulo { color: var(--fondo); }
+.metodologia__intro {
+  margin-top: var(--sp-3);
+  color: var(--gris-claro);
+  max-width: 44ch;
+}
+
+/* ---------- Línea de tiempo ---------- */
+.metodologia__pasos {
+  display: grid;
+  gap: var(--sp-5);
+  counter-reset: paso;
+}
+
+.paso {
+  position: relative;
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--linea-oscura);
+}
+
+/* Punto dorado sobre la línea */
+.paso__marca {
+  position: absolute;
+  top: -3px; left: 0;
+  width: 5px; height: 5px;
+  background: var(--dorado);
+  border-radius: 50%;
+}
+
+.paso__num {
+  display: block;
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--dorado);
+  margin-bottom: var(--sp-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.paso__nombre {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  color: var(--fondo);
+}
+
+.paso__desc {
+  margin-top: var(--sp-2);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--gris-claro);
+}
+
+@media (min-width: 760px) {
+  .metodologia__pasos { grid-template-columns: repeat(2, 1fr); gap: var(--sp-5) var(--sp-4); }
+}
+
+@media (min-width: 1060px) {
+  .metodologia__pasos { grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); }
+}

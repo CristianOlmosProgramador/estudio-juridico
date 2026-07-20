@@ -1,0 +1,104 @@
+.estudio__grid {
+  display: grid;
+  gap: var(--sp-6);
+}
+
+/* ---------- Panel tipográfico (sustituye a la foto de stock) ---------- */
+.estudio__panel {
+  position: relative;
+  margin: var(--sp-5) 0 0;
+  padding: var(--sp-5) var(--sp-4);
+  background: var(--navy);
+  border-radius: var(--radio);
+  overflow: hidden;
+}
+/* Retícula dorada muy tenue: da textura sin ruido */
+.estudio__panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(201, 162, 75, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(201, 162, 75, 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  pointer-events: none;
+}
+/* Comilla de apertura sobredimensionada, recortada por el panel */
+.estudio__panel::after {
+  content: '“';
+  position: absolute;
+  top: -2.2rem; right: 1rem;
+  font-family: var(--serif);
+  font-size: 11rem;
+  line-height: 1;
+  color: rgba(201, 162, 75, 0.16);
+  pointer-events: none;
+}
+
+.estudio__cita {
+  position: relative;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: var(--lh-media);
+  color: var(--fondo);
+  max-width: 34ch;
+}
+
+.estudio__firma {
+  position: relative;
+  margin-top: var(--sp-3);
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--linea-oscura);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dorado);
+}
+
+/* ---------- Pilares ---------- */
+.estudio__pilares {
+  display: grid;
+  gap: var(--sp-4);
+  align-content: start;
+}
+
+.pilar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--sp-3);
+  padding-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--linea);
+}
+.estudio__pilares .pilar:last-child { border-bottom: none; padding-bottom: 0; }
+
+.pilar__num {
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--dorado);
+  padding-top: 0.45rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.pilar__nombre {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+}
+
+.pilar__desc {
+  margin-top: var(--sp-1);
+  color: var(--gris);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  max-width: 44ch;
+}
+
+@media (min-width: 1000px) {
+  .estudio__grid {
+    grid-template-columns: 1.05fr 1fr;
+    gap: var(--sp-7);
+  }
+}

@@ -1,0 +1,135 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: var(--z-header);
+  transition: background var(--t-media) var(--ease),
+              border-color var(--t-media) var(--ease),
+              box-shadow var(--t-media) var(--ease);
+  border-bottom: 1px solid transparent;
+}
+
+/* Sobre el hero: transparente. Al bajar: navy sólido con hairline dorada. */
+.header--compacto {
+  background: rgba(15, 30, 61, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom-color: var(--dorado-suave);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  min-height: var(--alto-header);
+}
+
+/* ---------- Logo ---------- */
+.header__logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  margin-right: auto;
+}
+.header__logo-marca {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--fondo);
+  letter-spacing: 0.01em;
+}
+.header__logo-sub {
+  font-size: 0.6rem;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--dorado);
+}
+
+/* ---------- Nav escritorio ---------- */
+.header__nav {
+  display: none;
+  gap: var(--sp-4);
+}
+.header__link {
+  font-size: var(--fs-small);
+  color: var(--crema-suave);
+  white-space: nowrap;
+}
+
+.header__cta {
+  display: none;
+  padding: 0.7rem 1.35rem;
+}
+
+/* ---------- Burger ---------- */
+.header__burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px; height: 44px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.header__burger-linea {
+  display: block;
+  width: 24px; height: 1px;
+  background: var(--fondo);
+  transition: transform var(--t-rapida) var(--ease),
+              opacity var(--t-rapida) var(--ease);
+}
+.header__burger-linea.es-x1     { transform: translateY(6px) rotate(45deg); }
+.header__burger-linea.es-x2     { transform: translateY(-6px) rotate(-45deg); }
+.header__burger-linea.es-oculta { opacity: 0; }
+
+/* ---------- Menú móvil ---------- */
+.menu-movil {
+  position: fixed;
+  inset: var(--alto-header) 0 0 0;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--sp-5);
+  padding: var(--sp-5) var(--pad-x) var(--sp-7);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--t-media) var(--ease),
+              visibility var(--t-media) var(--ease);
+}
+.menu-movil--abierto { opacity: 1; visibility: visible; }
+
+.menu-movil__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+.menu-movil__link {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+  font-family: var(--serif);
+  font-size: clamp(1.75rem, 8vw, 2.5rem);
+  color: var(--fondo);
+  padding-bottom: var(--sp-2);
+  border-bottom: 1px solid var(--linea-oscura);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity var(--t-media) var(--ease),
+              transform var(--t-media) var(--ease);
+}
+.menu-movil--abierto .menu-movil__link { opacity: 1; transform: none; }
+
+.menu-movil__num {
+  font-family: var(--sans);
+  font-size: var(--fs-micro);
+  color: var(--dorado);
+}
+
+.menu-movil__cta { align-self: flex-start; }
+
+/* ---------- Escritorio ---------- */
+@media (min-width: 900px) {
+  .header__nav, .header__cta { display: flex; }
+  .header__burger, .menu-movil { display: none; }
+}

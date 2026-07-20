@@ -1,0 +1,69 @@
+.area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-4) var(--sp-3) var(--sp-5);
+  background: var(--blanco);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  transition: transform var(--t-media) var(--ease),
+              box-shadow var(--t-media) var(--ease),
+              border-color var(--t-media) var(--ease);
+}
+
+.area:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra);
+  border-color: var(--dorado-suave);
+}
+
+.area__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  padding-bottom: var(--sp-2);
+  border-bottom: 1px solid var(--linea);
+}
+
+.area__num {
+  font-family: var(--sans);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--dorado);
+  font-variant-numeric: tabular-nums;
+}
+
+.area__icono {
+  color: var(--tinta);
+  opacity: 0.55;
+  transition: opacity var(--t-media) var(--ease),
+              color var(--t-media) var(--ease);
+}
+.area:hover .area__icono { opacity: 1; color: var(--dorado); }
+
+.area__titulo {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+.area__desc {
+  font-size: 0.9375rem;
+  color: var(--gris);
+  line-height: 1.65;
+}
+
+/* Filete inferior que se dibuja de izquierda a derecha */
+.area__filete {
+  position: absolute;
+  left: 0; bottom: -1px;
+  width: 100%; height: 2px;
+  background: var(--dorado);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--t-media) var(--ease);
+}
+.area:hover .area__filete { transform: scaleX(1); }

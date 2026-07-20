@@ -1,0 +1,56 @@
+.credibilidad {
+  background: var(--fondo);
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+  border-bottom: 1px solid var(--linea);
+}
+
+.credibilidad__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-4) var(--sp-2);
+  margin: 0;
+}
+
+.cifra {
+  position: relative;
+  padding-left: var(--sp-3);
+  /* Filete dorado a la izquierda de cada dato */
+  border-left: 1px solid var(--linea);
+}
+.cifra::before {
+  content: '';
+  position: absolute;
+  left: -1px; top: 0;
+  width: 1px; height: 28px;
+  background: var(--dorado);
+}
+
+.cifra__valor {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+.cifra__sufijo {
+  color: var(--dorado);
+  font-size: 0.55em;
+  vertical-align: super;
+}
+
+.cifra__etiqueta {
+  margin-top: var(--sp-1);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gris);
+}
+
+@media (min-width: 760px) {
+  .credibilidad__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-4);
+  }
+}

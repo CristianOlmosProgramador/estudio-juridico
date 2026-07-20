@@ -1,0 +1,77 @@
+/* ============================================================
+   TOKENS DE DISEÑO — "Autoridad premium"
+   Re-skinnear el sitio para otro estudio = editar SOLO este
+   archivo + src/config/estudio.js + src/data/*.js
+   ============================================================ */
+
+:root {
+  /* ---------- Color ---------- */
+  --fondo:  #F7F4EF;  /* crema hueso, base clara */
+  --tinta:  #14213A;  /* navy casi tinta, texto principal */
+  --navy:   #0F1E3D;  /* azul marino profundo, secciones de autoridad */
+  --dorado: #C9A24B;  /* champagne, acento fino */
+  --gris:   #6B7280;  /* gris piedra, texto secundario */
+  --linea:  #E3DDD3;  /* hairline dividers */
+  --blanco: #FFFFFF;
+
+  /* Derivados (solo para uso sobre fondos oscuros) */
+  --crema-suave:   #EFE9E0;
+  --linea-oscura:  rgba(255, 255, 255, 0.14);
+  --gris-claro:    rgba(247, 244, 239, 0.62);
+  --dorado-suave:  rgba(201, 162, 75, 0.30);
+
+  /* ---------- Tipografía ---------- */
+  --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+  --sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Escala fluida: mobile-first, crece con el viewport */
+  --fs-display: clamp(2.75rem, 7vw, 5.25rem);   /* hero */
+  --fs-h2:      clamp(2rem, 4.2vw, 3.25rem);    /* título de sección */
+  --fs-h3:      clamp(1.35rem, 2vw, 1.6rem);    /* cards */
+  --fs-body:    clamp(0.975rem, 1.05vw, 1.0625rem);
+  --fs-small:   0.875rem;
+  --fs-micro:   0.75rem;                        /* eyebrows, numeración */
+
+  --lh-tight: 1.08;
+  --lh-media: 1.35;
+  --lh-body:  1.7;
+
+  --track-eyebrow: 0.22em;  /* versalitas espaciadas */
+  --track-display: -0.015em;
+
+  /* ---------- Espaciado (ritmo de 8) ---------- */
+  --sp-1: 0.5rem;
+  --sp-2: 1rem;
+  --sp-3: 1.5rem;
+  --sp-4: 2rem;
+  --sp-5: 3rem;
+  --sp-6: 4rem;
+  --sp-7: 6rem;
+  --sp-8: 8rem;
+
+  /* Aire vertical de sección: generoso, esta es la señal de premium */
+  --seccion-y: clamp(4.5rem, 11vw, 9rem);
+
+  /* ---------- Layout ---------- */
+  --ancho-max:    1200px;   /* contenedor estándar */
+  --ancho-texto:  62ch;     /* medida de lectura cómoda */
+  --pad-x:        clamp(1.25rem, 5vw, 3.5rem);
+  --alto-header:  76px;
+
+  /* ---------- Forma y profundidad ---------- */
+  --radio:    2px;   /* casi recto: sitio serio, no "amigable" */
+  --radio-lg: 3px;
+  --sombra:   0 1px 2px rgba(20, 33, 58, 0.04),
+              0 8px 24px rgba(20, 33, 58, 0.06);
+  --sombra-alta: 0 2px 4px rgba(20, 33, 58, 0.06),
+                 0 18px 48px rgba(20, 33, 58, 0.10);
+
+  /* ---------- Movimiento (sutil, nunca juguetón) ---------- */
+  --ease:      cubic-bezier(0.22, 0.61, 0.36, 1);
+  --t-rapida:  180ms;
+  --t-media:   420ms;
+  --t-lenta:   900ms;
+
+  --z-header: 100;
+  --z-flotante: 90;
+}

@@ -1,0 +1,114 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100svh;
+  padding-top: calc(var(--alto-header) + var(--sp-5));
+  padding-bottom: var(--sp-7);
+  background: var(--navy);
+  color: var(--fondo);
+  overflow: hidden;
+}
+
+/* Textura sutil: dos halos muy tenues. Nada de degradados evidentes. */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(70% 55% at 78% 18%, rgba(201, 162, 75, 0.10), transparent 62%),
+    radial-gradient(60% 60% at 8% 92%, rgba(247, 244, 239, 0.05), transparent 60%);
+  pointer-events: none;
+}
+
+.hero__inner { position: relative; }
+
+/* ---------- Eyebrow con filete dorado ---------- */
+.hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--dorado);
+  margin-bottom: var(--sp-4);
+
+  animation: subir var(--t-lenta) var(--ease) both;
+}
+.hero__eyebrow-linea {
+  width: 48px; height: 1px;
+  background: var(--dorado);
+  transform-origin: left;
+  animation: dibujar var(--t-lenta) var(--ease) 200ms both;
+}
+
+/* ---------- Titular ---------- */
+.hero__titulo {
+  font-size: var(--fs-display);
+  font-weight: 500;
+  max-width: 16ch;
+  animation: subir var(--t-lenta) var(--ease) 120ms both;
+}
+.hero__titulo-acento {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--dorado);
+}
+
+.hero__bajada {
+  margin-top: var(--sp-4);
+  max-width: 52ch;
+  color: var(--gris-claro);
+  animation: subir var(--t-lenta) var(--ease) 260ms both;
+}
+
+/* ---------- Acciones ---------- */
+.hero__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3) var(--sp-4);
+  margin-top: var(--sp-5);
+  animation: subir var(--t-lenta) var(--ease) 400ms both;
+}
+.hero__link-areas {
+  font-size: var(--fs-small);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--crema-suave);
+}
+
+/* ---------- Línea vertical de scroll ---------- */
+.hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 1px; height: 64px;
+  background: linear-gradient(to bottom, transparent, var(--dorado));
+  transform-origin: bottom;
+  animation: dibujarV 2.4s var(--ease) 900ms infinite;
+}
+
+@keyframes subir {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes dibujar {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes dibujarV {
+  0%        { transform: scaleY(0); opacity: 0; }
+  35%, 65%  { transform: scaleY(1); opacity: 1; }
+  100%      { transform: scaleY(1); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll { display: none; }
+}
+
+@media (min-width: 900px) {
+  .hero__bajada { font-size: 1.125rem; }
+}

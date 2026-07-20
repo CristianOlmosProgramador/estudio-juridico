@@ -1,0 +1,45 @@
+.testimonios__grid {
+  display: grid;
+  gap: var(--sp-5) var(--sp-4);
+  margin-top: var(--sp-4);
+}
+
+.testimonio {
+  margin: 0;
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--linea);
+}
+
+.testimonio__cita {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 2.1vw, 1.45rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: var(--lh-media);
+  color: var(--tinta);
+  text-wrap: pretty;
+}
+
+.testimonio__pie {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-top: var(--sp-3);
+}
+
+.testimonio__autor {
+  font-size: var(--fs-small);
+  font-weight: 500;
+}
+
+.testimonio__contexto {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dorado);
+}
+
+@media (min-width: 820px) {
+  .testimonios__grid { grid-template-columns: repeat(3, 1fr); }
+}

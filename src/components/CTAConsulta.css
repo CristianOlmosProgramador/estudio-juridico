@@ -1,0 +1,118 @@
+.cta {
+  background: var(--navy);
+  color: var(--fondo);
+}
+
+.cta__grid {
+  display: grid;
+  gap: var(--sp-6);
+}
+
+.cta__titulo { color: var(--fondo); }
+
+.cta__bajada {
+  margin-top: var(--sp-3);
+  color: var(--gris-claro);
+  max-width: 46ch;
+}
+
+/* ---------- Datos de contacto ---------- */
+.cta__datos {
+  display: grid;
+  gap: var(--sp-2);
+  margin-top: var(--sp-5);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--linea-oscura);
+}
+.cta__datos li {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  align-items: baseline;
+  gap: var(--sp-2);
+  font-size: var(--fs-small);
+  color: var(--crema-suave);
+}
+.cta__dato-et {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gris-claro);
+}
+
+.cta__wsp { margin-top: var(--sp-4); }
+
+/* ---------- Formulario ---------- */
+.cta__form {
+  display: grid;
+  gap: var(--sp-3);
+  align-content: start;
+  padding: var(--sp-4);
+  background: rgba(247, 244, 239, 0.04);
+  border: 1px solid var(--linea-oscura);
+  border-radius: var(--radio);
+}
+
+.campo { display: grid; gap: 0.4rem; }
+
+.campo__fila {
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.campo__label {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gris-claro);
+}
+
+/* Inputs sin caja: solo una línea inferior que se ilumina al foco */
+.campo__input {
+  width: 100%;
+  padding: 0.7rem 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--linea-oscura);
+  border-radius: 0;
+  color: var(--fondo);
+  font-size: var(--fs-body);
+  transition: border-color var(--t-rapida) var(--ease);
+}
+.campo__input::placeholder { color: rgba(247, 244, 239, 0.35); }
+.campo__input:hover  { border-bottom-color: var(--dorado-suave); }
+.campo__input:focus  { outline: none; border-bottom-color: var(--dorado); }
+.campo__input:focus-visible { outline: none; }
+.campo__input.es-error { border-bottom-color: #E0806B; }
+
+textarea.campo__input { resize: vertical; min-height: 6rem; line-height: 1.6; }
+
+/* El select nativo hereda el fondo del SO: forzamos legibilidad del menú */
+select.campo__input { appearance: none; cursor: pointer; }
+select.campo__input option { background: var(--navy); color: var(--fondo); }
+
+.campo__error {
+  font-size: var(--fs-micro);
+  color: #E0806B;
+}
+
+.cta__submit { margin-top: var(--sp-1); justify-self: start; }
+
+.cta__legal {
+  font-size: var(--fs-micro);
+  line-height: 1.6;
+  color: var(--gris-claro);
+  max-width: 44ch;
+}
+
+@media (min-width: 560px) {
+  .campo__fila { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 1000px) {
+  .cta__grid {
+    grid-template-columns: 1fr 1.05fr;
+    gap: var(--sp-7);
+    align-items: start;
+  }
+  .cta__form { padding: var(--sp-5); }
+}

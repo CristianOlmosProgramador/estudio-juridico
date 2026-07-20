@@ -1,0 +1,41 @@
+/* Discreto a propósito: navy con filete dorado, no el verde corporativo. */
+.wsp {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  z-index: var(--z-flotante);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.1rem;
+
+  background: var(--navy);
+  color: var(--fondo);
+  border: 1px solid var(--dorado-suave);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-alta);
+
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity var(--t-media) var(--ease),
+              transform var(--t-media) var(--ease),
+              visibility var(--t-media) var(--ease),
+              border-color var(--t-rapida) var(--ease);
+}
+
+.wsp--visible { opacity: 1; visibility: visible; transform: none; }
+
+.wsp:hover { border-color: var(--dorado); }
+.wsp svg { color: var(--dorado); flex-shrink: 0; }
+
+/* En móvil solo el icono, para no tapar contenido */
+@media (max-width: 520px) {
+  .wsp { padding: 0.85rem; }
+  .wsp__texto { display: none; }
+}
