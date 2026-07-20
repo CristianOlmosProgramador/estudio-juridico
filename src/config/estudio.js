@@ -26,15 +26,22 @@ export const estudio = {
       'Representación legal de excelencia para personas y empresas. Analizamos su caso con franqueza y definimos una estrategia clara desde la primera reunión.',
 
     /**
-     * Foto del hero, enmarcada junto al titular (no a sangre completa).
-     * Deja '' para volver al hero navy sólido, sin imagen.
+     * Foto del hero, a sangre completa detrás del titular.
+     * Pon `imagen: null` para volver al hero navy sólido, sin foto.
      *
-     * Proporción ideal: vertical, entre 3:4 y 4:5.
-     * Resolución mínima recomendada: 1000px de ancho. La actual es de 500px,
-     * suficiente para el marco pero no para un fondo a sangre completa.
+     * Para cambiarla: reemplaza public/hero.png (apaisada, 1600px de ancho
+     * como mínimo) y corre `npm run img`, que regenera las variantes WebP.
+     *
+     * `foco` es el object-position que se usa en móvil, donde el recorte es
+     * agresivo: apunta a dónde están las personas para que no queden fuera.
      */
-    imagen: '/hero.webp',
-    imagenAlt: 'Equipo de abogados reunido frente al mar en el litoral central',
+    imagen: {
+      src: '/hero-1440.webp',
+      srcSet:
+        '/hero-640.webp 640w, /hero-1000.webp 1000w, /hero-1440.webp 1440w, /hero-1672.webp 1672w',
+      alt: 'Equipo de abogados caminando por la playa del litoral central',
+      foco: '72% 50%',
+    },
   },
 
   // --- Contacto ---

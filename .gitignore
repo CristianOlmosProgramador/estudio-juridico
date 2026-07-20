@@ -5,3 +5,6 @@ dist
 *.local
 
 .vercel
+
+# Original pesado del hero: solo se publican las variantes WebP
+public/hero.png

@@ -10,7 +10,42 @@
   overflow: hidden;
 }
 
-/* Textura sutil: dos halos muy tenues. Nada de degradados evidentes. */
+/* ---------- Foto a sangre completa ---------- */
+.hero__fondo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* Desaturado parcial: integra la foto a la paleta sin apagarla del todo */
+  filter: grayscale(45%) contrast(1.06) brightness(0.9);
+}
+
+/* Velo que protege la legibilidad del texto.
+   En escritorio el texto va a la izquierda, así que el velo carga a ese lado
+   y deja despejado el tercio derecho, donde está el equipo en la foto. */
+.hero__fondo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      100deg,
+      rgba(15, 30, 61, 0.95) 0%,
+      rgba(15, 30, 61, 0.88) 32%,
+      rgba(15, 30, 61, 0.55) 62%,
+      rgba(15, 30, 61, 0.28) 100%
+    ),
+    linear-gradient(to bottom, rgba(15, 30, 61, 0.55), transparent 28%);
+}
+
+/* Halos muy tenues, por encima de la foto */
 .hero::before {
   content: '';
   position: absolute;
@@ -25,8 +60,6 @@
 .hero__inner {
   position: relative;
   z-index: 2;
-  display: grid;
-  gap: var(--sp-5);
   width: 100%;
 }
 
@@ -55,7 +88,8 @@
 .hero__titulo {
   font-size: var(--fs-display);
   font-weight: 500;
-  max-width: 16ch;
+  max-width: 15ch;
+  text-shadow: 0 1px 24px rgba(15, 30, 61, 0.5);
   animation: subir var(--t-lenta) var(--ease) 120ms both;
 }
 .hero__titulo-acento {
@@ -66,8 +100,9 @@
 
 .hero__bajada {
   margin-top: var(--sp-4);
-  max-width: 52ch;
-  color: var(--gris-claro);
+  max-width: 46ch;
+  color: var(--crema-suave);
+  text-shadow: 0 1px 16px rgba(15, 30, 61, 0.6);
   animation: subir var(--t-lenta) var(--ease) 260ms both;
 }
 
@@ -85,37 +120,6 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--crema-suave);
-}
-
-/* ---------- Figura: foto enmarcada ---------- */
-.hero__figura {
-  position: relative;
-  margin: 0;
-  /* Se muestra a tamaño casi nativo (500px) para no perder nitidez */
-  max-width: 460px;
-  justify-self: center;
-  animation: subir var(--t-lenta) var(--ease) 520ms both;
-}
-
-.hero__img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 500 / 575;
-  object-fit: cover;
-  border-radius: var(--radio);
-  /* Desaturado parcial + duotono suave: la foto se integra a la paleta
-     sin perder que se distinga el equipo. */
-  filter: grayscale(65%) contrast(1.08) brightness(0.92);
-}
-
-/* Marco dorado desplazado: detalle editorial */
-.hero__marco {
-  position: absolute;
-  inset: 14px -14px -14px 14px;
-  border: 1px solid var(--dorado-suave);
-  border-radius: var(--radio);
-  pointer-events: none;
-  z-index: -1;
 }
 
 /* ---------- Línea vertical de scroll ---------- */
@@ -148,21 +152,40 @@
   .hero__scroll { display: none; }
 }
 
-/* En móvil la foto va bajo el texto y más contenida */
+/* ============================================================
+   MÓVIL
+   El viewport es vertical y la foto apaisada: el recorte deja fuera
+   casi todo el ancho. Se enfoca en las personas (--foco), el texto baja
+   al tercio inferior para no taparles la cara, y el velo se hace vertical.
+   ============================================================ */
 @media (max-width: 899px) {
-  .hero { padding-bottom: var(--sp-6); }
-  .hero__figura { max-width: 320px; }
+  .hero {
+    align-items: flex-end;
+    padding-top: calc(var(--alto-header) + var(--sp-4));
+    padding-bottom: var(--sp-6);
+  }
+
+  .hero--con-imagen .hero__img {
+    object-position: var(--foco, 72% 50%);
+  }
+
+  .hero--con-imagen .hero__fondo::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(15, 30, 61, 0.72) 0%,
+      rgba(15, 30, 61, 0.42) 26%,
+      rgba(15, 30, 61, 0.82) 58%,
+      rgba(15, 30, 61, 0.96) 100%
+    );
+  }
+
+  .hero__titulo { max-width: 13ch; }
+  .hero__bajada { max-width: 100%; }
+  .hero__acciones { margin-top: var(--sp-4); }
+  .hero__acciones .btn { width: 100%; }
   .hero__scroll { display: none; }
 }
 
 @media (min-width: 900px) {
   .hero__bajada { font-size: 1.125rem; }
-
-  .hero--con-imagen .hero__inner {
-    grid-template-columns: 1.15fr 0.85fr;
-    align-items: center;
-    gap: var(--sp-6);
-  }
-  .hero--con-imagen .hero__titulo { max-width: 14ch; }
-  .hero--con-imagen .hero__bajada { max-width: 44ch; }
 }
