@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { estudio, whatsappUrl } from '../config/estudio.js'
 import { areas } from '../data/areas.js'
 import { useReveal } from '../hooks/useReveal.js'
+import Icono from './Icono.jsx'
 import './CTAConsulta.css'
 
 const vacio = { nombre: '', email: '', telefono: '', materia: '', mensaje: '' }
@@ -27,26 +28,12 @@ export default function CTAConsulta() {
     return err
   }
 
-  /**
-   * MAQUETA FUNCIONAL: valida y abre WhatsApp con el caso ya redactado.
-   *
-   * Para conectar a un backend real, reemplaza el bloque marcado por un fetch:
-   *
-   *   await fetch('https://api.web3forms.com/submit', {
-   *     method: 'POST',
-   *     headers: { 'Content-Type': 'application/json' },
-   *     body: JSON.stringify({ access_key: 'TU_KEY_WEB3FORMS', ...datos }),
-   *   })
-   *
-   * (Web3Forms entrega el mensaje al correo del estudio sin servidor propio.)
-   */
   const enviar = (e) => {
     e.preventDefault()
     const err = validar()
     setErrores(err)
     if (Object.keys(err).length) return
 
-    // ---- inicio del bloque reemplazable ----
     const texto =
       `Hola, quiero agendar una consulta legal.\n\n` +
       `Nombre: ${datos.nombre}\n` +
@@ -55,8 +42,6 @@ export default function CTAConsulta() {
       `Materia: ${datos.materia}\n\n` +
       `${datos.mensaje}`
     window.open(whatsappUrl(texto), '_blank', 'noopener,noreferrer')
-    // ---- fin del bloque reemplazable ----
-
     setDatos(vacio)
   }
 
@@ -74,97 +59,116 @@ export default function CTAConsulta() {
     <section className="seccion cta" id="contacto">
       <div className="contenedor cta__grid">
         <div className="cta__intro reveal" ref={refCab}>
-          <p className="eyebrow eyebrow--claro">
-            <span className="eyebrow__num">06</span>
-            <span>Consulta</span>
-            <span className="eyebrow__linea" />
+          <p className="cta__eyebrow">
+            <span aria-hidden="true" />
+            Contacto
           </p>
 
           <h2 className="titulo-seccion cta__titulo">
-            La primera conversación <em className="acento-serif">no tiene costo</em>.
+            Cuéntenos sobre <em className="acento-serif">su caso</em>
           </h2>
 
           <p className="cta__bajada">
-            Cuéntenos su situación y le diremos con franqueza si podemos ayudarle. Respondemos
-            dentro del mismo día hábil.
+            Déjenos sus datos y le responderemos con una orientación clara, confidencial y
+            sin compromisos. La primera conversación no tiene costo.
           </p>
 
-          <ul className="cta__datos">
-            <li>
-              <span className="cta__dato-et">Teléfono</span>
-              <a className="enlace-dorado" href={`tel:+${estudio.telefonoWhatsapp}`}>
-                {estudio.telefonoVisible}
-              </a>
-            </li>
-            <li>
-              <span className="cta__dato-et">Correo</span>
-              <a className="enlace-dorado" href={`mailto:${estudio.email}`}>
-                {estudio.email}
-              </a>
-            </li>
-            {estudio.horario && (
-              <li>
-                <span className="cta__dato-et">Atención</span>
-                <span>{estudio.horario}</span>
-              </li>
-            )}
-          </ul>
+          <div className="cta__contactos">
+            <a
+              className="cta__contacto-card"
+              href={whatsappUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="cta__contacto-icono">
+                <Icono nombre="whatsapp" tam={21} />
+              </span>
+              <span>
+                <strong>WhatsApp</strong>
+                <small>{estudio.telefonoVisible}</small>
+              </span>
+            </a>
 
-          <a
-            className="btn btn--contorno cta__wsp"
-            href={whatsappUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Escribir por WhatsApp
-          </a>
+            <a className="cta__contacto-card" href={`mailto:${estudio.email}`}>
+              <span className="cta__contacto-icono">
+                <Icono nombre="correo" tam={21} />
+              </span>
+              <span>
+                <strong>Correo</strong>
+                <small>{estudio.email}</small>
+              </span>
+            </a>
+
+            <div className="cta__contacto-card">
+              <span className="cta__contacto-icono">
+                <Icono nombre="ubicacion" tam={21} />
+              </span>
+              <span>
+                <strong>Ubicación</strong>
+                <small>{estudio.comuna} · {estudio.region}</small>
+              </span>
+            </div>
+          </div>
+
+          <p className="cta__respuesta">
+            <Icono nombre="reloj" tam={17} />
+            Respondemos dentro del mismo día hábil.
+          </p>
         </div>
 
         <form className="cta__form" onSubmit={enviar} noValidate>
-          <div className="campo">
-            <label className="campo__label" htmlFor="nombre">Nombre completo</label>
-            <input type="text" autoComplete="name" {...campo('nombre')} />
-            {errores.nombre && <p className="campo__error" id="nombre-error">{errores.nombre}</p>}
+          <div className="campo__fila">
+            <div className="campo">
+              <label className="campo__label" htmlFor="nombre">Nombre completo *</label>
+              <input type="text" autoComplete="name" placeholder="Su nombre" {...campo('nombre')} />
+              {errores.nombre && <p className="campo__error" id="nombre-error">{errores.nombre}</p>}
+            </div>
+
+            <div className="campo">
+              <label className="campo__label" htmlFor="email">Correo electrónico *</label>
+              <input type="email" autoComplete="email" placeholder="correo@ejemplo.cl" {...campo('email')} />
+              {errores.email && <p className="campo__error" id="email-error">{errores.email}</p>}
+            </div>
           </div>
 
           <div className="campo__fila">
             <div className="campo">
-              <label className="campo__label" htmlFor="email">Correo electrónico</label>
-              <input type="email" autoComplete="email" {...campo('email')} />
-              {errores.email && <p className="campo__error" id="email-error">{errores.email}</p>}
+              <label className="campo__label" htmlFor="telefono">Teléfono *</label>
+              <input type="tel" autoComplete="tel" placeholder="+56 9 1234 5678" {...campo('telefono')} />
+              {errores.telefono && <p className="campo__error" id="telefono-error">{errores.telefono}</p>}
             </div>
 
             <div className="campo">
-              <label className="campo__label" htmlFor="telefono">Teléfono</label>
-              <input type="tel" autoComplete="tel" placeholder="+56 9 …" {...campo('telefono')} />
-              {errores.telefono && <p className="campo__error" id="telefono-error">{errores.telefono}</p>}
+              <label className="campo__label" htmlFor="materia">Materia *</label>
+              <select {...campo('materia')}>
+                <option value="">Seleccione una materia</option>
+                {areas.map((a) => (
+                  <option key={a.id} value={a.nombre}>{a.nombre}</option>
+                ))}
+                <option value="Otra materia">Otra materia</option>
+              </select>
+              {errores.materia && <p className="campo__error" id="materia-error">{errores.materia}</p>}
             </div>
           </div>
 
           <div className="campo">
-            <label className="campo__label" htmlFor="materia">Materia</label>
-            <select {...campo('materia')}>
-              <option value="">Seleccione…</option>
-              {areas.map((a) => (
-                <option key={a.id} value={a.nombre}>{a.nombre}</option>
-              ))}
-              <option value="Otra materia">Otra materia</option>
-            </select>
-            {errores.materia && <p className="campo__error" id="materia-error">{errores.materia}</p>}
-          </div>
-
-          <div className="campo">
-            <label className="campo__label" htmlFor="mensaje">Describa brevemente su caso</label>
-            <textarea rows="4" {...campo('mensaje')} />
+            <label className="campo__label" htmlFor="mensaje">Mensaje *</label>
+            <textarea
+              rows="5"
+              placeholder="Cuéntenos brevemente qué necesita resolver…"
+              {...campo('mensaje')}
+            />
             {errores.mensaje && <p className="campo__error" id="mensaje-error">{errores.mensaje}</p>}
           </div>
 
-          <button type="submit" className="btn btn--primario cta__submit">
+          <button type="submit" className="btn cta__submit">
+            <Icono nombre="pluma" tam={17} />
             Solicitar consulta
           </button>
 
           <p className="cta__legal">
-            La información entregada es confidencial y está protegida por el secreto profesional.
+            Al enviar, abriremos WhatsApp con los datos de su consulta. La información es
+            confidencial y se utiliza únicamente para responderle.
           </p>
         </form>
       </div>

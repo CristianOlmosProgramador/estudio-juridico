@@ -6,6 +6,7 @@ import Metodologia from './components/Metodologia.jsx'
 import Equipo from './components/Equipo.jsx'
 import Testimonios from './components/Testimonios.jsx'
 import CTAConsulta from './components/CTAConsulta.jsx'
+import CTAPreFooter from './components/CTAPreFooter.jsx'
 import Footer from './components/Footer.jsx'
 import WhatsappFloat from './components/WhatsappFloat.jsx'
 
@@ -22,6 +23,7 @@ export default function App() {
         <Equipo />
         <Testimonios />
         <CTAConsulta />
+        <CTAPreFooter />
       </main>
       <Footer />
       <WhatsappFloat />
