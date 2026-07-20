@@ -1,6 +1,12 @@
 /**
  * TESTIMONIOS
  * Citas breves y sobrias. Dos o tres bastan: más resta credibilidad.
+ *
+ * ⚠️ EJEMPLOS DE MUESTRA — NO PUBLICAR TAL CUAL.
+ * Estas citas y sus autores son inventados, sirven solo para mostrar el
+ * diseño. Antes de salir a producción hay que reemplazarlas por testimonios
+ * reales autorizados por sus autores, o dejar el array vacío (`[]`), lo que
+ * oculta la sección completa.
  */
 
 export const testimonios = [

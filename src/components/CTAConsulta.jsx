@@ -102,10 +102,12 @@ export default function CTAConsulta() {
                 {estudio.email}
               </a>
             </li>
-            <li>
-              <span className="cta__dato-et">Atención</span>
-              <span>{estudio.horario}</span>
-            </li>
+            {estudio.horario && (
+              <li>
+                <span className="cta__dato-et">Atención</span>
+                <span>{estudio.horario}</span>
+              </li>
+            )}
           </ul>
 
           <a

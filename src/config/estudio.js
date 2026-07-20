@@ -2,28 +2,31 @@
  * FICHA DEL ESTUDIO
  * Único archivo que hay que tocar para re-skinnear el sitio a otro cliente
  * (junto con src/styles/variables.css y src/data/*.js).
+ *
+ * Datos tomados de abogadoslitoralcentral.cl.
+ * Los marcados con POR CONFIRMAR no aparecen en ese sitio: hay que
+ * verificarlos con el estudio antes de publicar.
  */
 
 export const estudio = {
-  nombre: 'Estudio Jurídico [Nombre]',
-  nombreCorto: '[Nombre]',
+  nombre: 'Abogados en el Litoral Central',
+  nombreCorto: 'Litoral Central',
   tagline: 'Defensa rigurosa. Estrategia a la medida.',
 
   /**
    * Logo del estudio. Deja '' para mostrar el nombre tipográfico (wordmark).
-   * Sube el archivo a /public/logo.png (idealmente PNG con fondo transparente,
-   * ~400px de alto). Si la ruta falla, vuelve solo al wordmark.
+   * El archivo actual no tiene canal alfa, por eso se recorta en círculo.
    */
   logo: '/abogados-litoral-central-logo-150x150.webp',
 
   // --- Copy del hero (editable sin tocar componentes) ---
   hero: {
-    eyebrow: 'Abogados · Región de Valparaíso',
+    eyebrow: 'Abogados · Litoral Central',
     // El titular se corta en dos para controlar el quiebre de línea.
     titulo: 'La defensa de sus derechos',
     tituloAcento: 'exige rigor, no promesas.',
     bajada:
-      'Representación legal de excelencia para personas y empresas. Analizamos su caso con franqueza y definimos una estrategia clara desde la primera reunión.',
+      'Representación legal para personas y empresas en el litoral central. Analizamos su caso con franqueza y definimos una estrategia clara desde la primera reunión.',
 
     /**
      * Foto del hero, a sangre completa detrás del titular.
@@ -45,32 +48,33 @@ export const estudio = {
   },
 
   // --- Contacto ---
-  telefonoWhatsapp: '56949455852', // solo dígitos, con código de país
-  telefonoVisible: '+56 9 4945 5852',
+  telefonoWhatsapp: '56933380223', // solo dígitos, con código de país
+  telefonoVisible: '+56 9 3338 0223',
+  telefonoAlternativo: '+56 9 5017 3896',
   mensajeWhatsapp: 'Hola, quiero agendar una consulta legal.',
-  email: 'contacto@estudiojuridico.cl',
+  email: 'contacta@abogadoslitoralcentral.cl',
 
   // --- Ubicación ---
-  direccion: 'Av. Libertad 1348, oficina 902, Viña del Mar',
-  comuna: 'Viña del Mar',
+  direccion: 'El Boldo 334, Of. 37 · Centro Comercial Espacio Algarrobo',
+  comuna: 'Algarrobo',
   region: 'Región de Valparaíso',
-  horario: 'Lunes a viernes · 09:00 a 18:30 h',
-  coberturaTerritorial: 'Región de Valparaíso y Región Metropolitana',
+  horario: '', // POR CONFIRMAR: no publicado. Vacío = no se muestra.
+  coberturaTerritorial: 'Litoral Central, Valparaíso, Viña del Mar, Concón y Quintero',
 
   // --- Cifras de credibilidad (barra bajo el hero) ---
-  fundacion: 2009,
+  fundacion: null, // POR CONFIRMAR: el sitio dice "años de experiencia", sin cifra
   cifras: [
-    { valor: '15', sufijo: '+', etiqueta: 'Años de ejercicio' },
-    { valor: '900', sufijo: '+', etiqueta: 'Causas representadas' },
-    { valor: '10', sufijo: '', etiqueta: 'Áreas de práctica' },
-    { valor: '2', sufijo: '', etiqueta: 'Regiones de cobertura' },
+    // POR CONFIRMAR con el estudio antes de publicar.
+    { valor: '12', sufijo: '', etiqueta: 'Áreas de práctica' },
+    { valor: '5', sufijo: '', etiqueta: 'Comunas de cobertura' },
+    { valor: '24', sufijo: 'h', etiqueta: 'Respuesta a consultas' },
   ],
 
   // --- Redes (deja vacío el que no aplique: no se renderiza) ---
   redes: {
-    instagram: 'https://instagram.com/',
-    linkedin: 'https://linkedin.com/',
-    facebook: '',
+    instagram: '',
+    linkedin: '',
+    facebook: 'https://www.facebook.com/profile.php?id=100085628260286',
   },
 }
 

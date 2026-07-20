@@ -1,7 +1,7 @@
 /**
  * ÁREAS DE PRÁCTICA
+ * Las 12 áreas publicadas en abogadoslitoralcentral.cl.
  * `icono` referencia una clave del set SVG propio (src/components/Icono.jsx).
- * `categoria` alimenta el filtro de la grilla.
  * Descripciones: 1–2 frases. Nunca párrafos largos.
  */
 
@@ -16,34 +16,16 @@ export const areas = [
   {
     id: 'laboral',
     numero: '01',
-    nombre: 'Derecho Laboral y Seguridad Social',
+    nombre: 'Derecho Laboral',
     categoria: 'personas',
     icono: 'balanza',
     descripcion:
-      'Despidos injustificados, autodespido, tutela de derechos fundamentales y cobro de prestaciones. Representamos tanto al trabajador como a la empresa.',
-  },
-  {
-    id: 'penal',
-    numero: '02',
-    nombre: 'Derecho Penal',
-    categoria: 'litigios',
-    icono: 'escudo',
-    descripcion:
-      'Defensa penal en todas las etapas del proceso, desde la primera audiencia hasta el juicio oral. También querellas y representación de víctimas.',
-  },
-  {
-    id: 'civil',
-    numero: '03',
-    nombre: 'Derecho Civil',
-    categoria: 'patrimonio',
-    icono: 'columna',
-    descripcion:
-      'Responsabilidad contractual y extracontractual, indemnización de perjuicios, nulidades y juicios de arrendamiento.',
+      'Despidos injustificados, autodespido, tutela de derechos fundamentales y cobro de prestaciones. Representamos al trabajador y a la empresa.',
   },
   {
     id: 'familia',
-    numero: '04',
-    nombre: 'Derecho de Familia',
+    numero: '02',
+    nombre: 'Derecho Familiar',
     categoria: 'personas',
     icono: 'personas',
     descripcion:
@@ -51,57 +33,93 @@ export const areas = [
   },
   {
     id: 'inmobiliario',
-    numero: '05',
+    numero: '03',
     nombre: 'Derecho Inmobiliario',
     categoria: 'patrimonio',
     icono: 'edificio',
     descripcion:
-      'Compraventas, estudios de título, saneamiento de propiedad y regularización de posesión efectiva.',
+      'Compraventas, estudios de título, saneamiento de propiedad y regularización. Clave en una zona de segunda vivienda.',
+  },
+  {
+    id: 'litigios',
+    numero: '04',
+    nombre: 'Litigios',
+    categoria: 'litigios',
+    icono: 'martillo',
+    descripcion:
+      'Representación en juicio con una estrategia definida desde el primer día, no improvisada en la audiencia.',
+  },
+  {
+    id: 'cobranza',
+    numero: '05',
+    nombre: 'Cobranza Judicial y Extrajudicial',
+    categoria: 'patrimonio',
+    icono: 'documento',
+    descripcion:
+      'Recuperación de deudas por gestión directa o juicio ejecutivo, con seguimiento hasta el pago efectivo.',
+  },
+  {
+    id: 'contratos',
+    numero: '06',
+    nombre: 'Redacción de Contratos',
+    categoria: 'patrimonio',
+    icono: 'pluma',
+    descripcion:
+      'Contratos, mandatos y finiquitos redactados y revisados. Prevenimos el conflicto antes de que llegue a tribunales.',
+  },
+  {
+    id: 'civil',
+    numero: '07',
+    nombre: 'Procedimientos Civiles',
+    categoria: 'patrimonio',
+    icono: 'columna',
+    descripcion:
+      'Responsabilidad contractual y extracontractual, indemnización de perjuicios, nulidades y arrendamientos.',
   },
   {
     id: 'corporativo',
-    numero: '06',
-    nombre: 'Derecho Corporativo y Societario',
+    numero: '08',
+    nombre: 'Derecho Corporativo',
     categoria: 'patrimonio',
     icono: 'maletin',
     descripcion:
       'Constitución y reorganización de sociedades, pactos de accionistas y asesoría legal permanente para empresas.',
   },
   {
-    id: 'cobranza',
-    numero: '07',
-    nombre: 'Cobranza Judicial y Extrajudicial',
-    categoria: 'patrimonio',
-    icono: 'documento',
-    descripcion:
-      'Recuperación de deudas mediante gestión directa o juicio ejecutivo, con seguimiento hasta el pago efectivo.',
-  },
-  {
-    id: 'contratos',
-    numero: '08',
-    nombre: 'Contratos y Documentos Legales',
-    categoria: 'patrimonio',
-    icono: 'pluma',
-    descripcion:
-      'Redacción y revisión de contratos, mandatos y finiquitos. Prevenimos el conflicto antes de que llegue a tribunales.',
-  },
-  {
-    id: 'litigios',
+    id: 'penal',
     numero: '09',
-    nombre: 'Litigios y Solución de Conflictos',
+    nombre: 'Derecho Penal',
     categoria: 'litigios',
-    icono: 'martillo',
+    icono: 'escudo',
     descripcion:
-      'Representación en juicio y en instancias de mediación o arbitraje, con una estrategia definida desde el primer día.',
+      'Defensa en todas las etapas del proceso, desde la primera audiencia hasta el juicio oral. También querellas y representación de víctimas.',
   },
   {
     id: 'transito',
     numero: '10',
-    nombre: 'Juzgados de Policía Local y Tránsito',
+    nombre: 'Juzgados de Policía Local',
     categoria: 'litigios',
     icono: 'volante',
     descripcion:
-      'Defensa por infracciones, accidentes de tránsito y reclamos ante la Ley del Consumidor.',
+      'Infracciones, accidentes de tránsito y reclamos por Ley del Consumidor ante el juzgado que corresponda.',
+  },
+  {
+    id: 'seguridad-social',
+    numero: '11',
+    nombre: 'Seguridad Social',
+    categoria: 'personas',
+    icono: 'escudo',
+    descripcion:
+      'Pensiones de invalidez y sobrevivencia, licencias médicas rechazadas y gestiones ante AFP e isapres.',
+  },
+  {
+    id: 'mediacion',
+    numero: '12',
+    nombre: 'Mediación y Solución de Conflictos',
+    categoria: 'litigios',
+    icono: 'personas',
+    descripcion:
+      'Salidas negociadas cuando conviene más un acuerdo rápido que un juicio largo. Le diremos cuándo es el caso.',
   },
 ]
 

@@ -159,25 +159,33 @@
    al tercio inferior para no taparles la cara, y el velo se hace vertical.
    ============================================================ */
 @media (max-width: 899px) {
+  /* El contenido va arriba, apenas bajo el header: es lo primero que ve
+     quien llega desde WhatsApp o Instagram. La foto queda de telón,
+     con el equipo visible en la mitad inferior. */
   .hero {
-    align-items: flex-end;
-    padding-top: calc(var(--alto-header) + var(--sp-4));
-    padding-bottom: var(--sp-6);
+    align-items: flex-start;
+    min-height: 92svh;
+    padding-top: calc(var(--alto-header) + var(--sp-3));
+    padding-bottom: var(--sp-5);
   }
 
   .hero--con-imagen .hero__img {
     object-position: var(--foco, 72% 50%);
   }
 
+  /* Velo cargado arriba, donde está el texto; se abre al centro para dejar
+     ver a las personas y vuelve a cerrar abajo contra la sección siguiente. */
   .hero--con-imagen .hero__fondo::after {
     background: linear-gradient(
       to bottom,
-      rgba(15, 30, 61, 0.72) 0%,
-      rgba(15, 30, 61, 0.42) 26%,
-      rgba(15, 30, 61, 0.82) 58%,
-      rgba(15, 30, 61, 0.96) 100%
+      rgba(15, 30, 61, 0.94) 0%,
+      rgba(15, 30, 61, 0.88) 34%,
+      rgba(15, 30, 61, 0.46) 62%,
+      rgba(15, 30, 61, 0.78) 100%
     );
   }
+
+  .hero__eyebrow { margin-bottom: var(--sp-3); }
 
   .hero__titulo { max-width: 13ch; }
   .hero__bajada { max-width: 100%; }

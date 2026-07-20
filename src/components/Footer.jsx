@@ -26,10 +26,20 @@ export default function Footer() {
                 {estudio.telefonoVisible}
               </a>
             </li>
+            {estudio.telefonoAlternativo && (
+              <li>
+                <a
+                  className="enlace-dorado"
+                  href={`tel:${estudio.telefonoAlternativo.replace(/\s/g, '')}`}
+                >
+                  {estudio.telefonoAlternativo}
+                </a>
+              </li>
+            )}
             <li>
               <a className="enlace-dorado" href={`mailto:${estudio.email}`}>{estudio.email}</a>
             </li>
-            <li>{estudio.horario}</li>
+            {estudio.horario && <li>{estudio.horario}</li>}
           </ul>
         </div>
 
