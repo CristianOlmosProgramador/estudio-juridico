@@ -27,6 +27,9 @@
 
 .areas__filtro {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px; /* área táctil mínima */
   padding: 0.4rem 0;
   background: none;
   border: none;

@@ -42,6 +42,17 @@
 }
 .footer__lista a { color: var(--crema-suave); }
 
+/* En táctil los enlaces del footer (teléfono, correo) alcanzan los 44px:
+   son acciones de conversión, no pueden quedar en 17px de alto. */
+@media (pointer: coarse) {
+  .footer__lista a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .footer__lista { gap: 0; }
+}
+
 /* ---------- Base ---------- */
 .footer__base {
   display: flex;

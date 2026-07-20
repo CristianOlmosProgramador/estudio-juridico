@@ -31,7 +31,8 @@
   --fs-display: clamp(2.75rem, 7vw, 5.25rem);   /* hero */
   --fs-h2:      clamp(2rem, 4.2vw, 3.25rem);    /* título de sección */
   --fs-h3:      clamp(1.35rem, 2vw, 1.6rem);    /* cards */
-  --fs-body:    clamp(0.975rem, 1.05vw, 1.0625rem);
+  /* Piso de 1rem = 16px: bajo eso iOS Safari hace zoom al enfocar un input */
+  --fs-body:    clamp(1rem, 1.05vw, 1.0625rem);
   --fs-small:   0.875rem;
   --fs-micro:   0.75rem;                        /* eyebrows, numeración */
 

@@ -116,6 +116,9 @@
   animation: subir var(--t-lenta) var(--ease) 400ms both;
 }
 .hero__link-areas {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px; /* área táctil mínima */
   font-size: var(--fs-small);
   letter-spacing: 0.06em;
   text-transform: uppercase;
