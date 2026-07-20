@@ -1,5 +1,6 @@
 .credibilidad {
-  background: var(--fondo);
+  /* Transparente para que se vea el grano del body */
+  background: transparent;
   padding-block: clamp(2.5rem, 6vw, 4rem);
   border-bottom: 1px solid var(--linea);
 }

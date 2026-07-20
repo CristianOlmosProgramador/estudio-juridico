@@ -7,7 +7,12 @@ html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--fondo);
+  /* Grano tenue como background del body, no como overlay fijo: un overlay
+     `fixed` con feTurbulence se recalcula en cada repintado de scroll y
+     llegó a trabar el render. Un tile PNG de 1.4 kB se decodifica una vez. */
+  background-color: var(--fondo);
+  background-image: url('/grano.png');
+  background-repeat: repeat;
   color: var(--tinta);
   font-family: var(--sans);
   font-size: var(--fs-body);
@@ -18,18 +23,6 @@ body {
 
 img, svg { display: block; max-width: 100%; }
 img { height: auto; }
-
-/* Grano muy tenue sobre toda la página: quita el aspecto de color plano.
-   Va en ::before del body para no interferir con el z-index del contenido. */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.32;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23r)' opacity='0.22'/%3E%3C/svg%3E");
-}
 
 h1, h2, h3, h4 {
   margin: 0;
