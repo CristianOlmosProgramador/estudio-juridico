@@ -1,6 +1,5 @@
 import Header from './components/Header.jsx'
 import Hero from './components/Hero.jsx'
-import Credibilidad from './components/Credibilidad.jsx'
 import AreasPractica from './components/AreasPractica.jsx'
 import Estudio from './components/Estudio.jsx'
 import Metodologia from './components/Metodologia.jsx'
@@ -17,7 +16,6 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <Credibilidad />
         <AreasPractica />
         <Estudio />
         <Metodologia />

@@ -8,6 +8,11 @@
   gap: var(--sp-6);
 }
 
+.cta__intro,
+.cta__form {
+  min-width: 0;
+}
+
 .cta__titulo { color: var(--fondo); }
 
 .cta__bajada {
@@ -26,7 +31,7 @@
 }
 .cta__datos li {
   display: grid;
-  grid-template-columns: 7.5rem 1fr;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
   align-items: baseline;
   gap: var(--sp-2);
   font-size: var(--fs-small);
@@ -35,6 +40,8 @@
 @media (max-width: 899px) {
   .cta__datos a {
     display: inline-flex;
+    min-width: 0;
+    overflow-wrap: anywhere;
     align-items: center;
     min-height: 44px;
   }

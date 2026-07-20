@@ -1,4 +1,5 @@
 import { estudio, whatsappUrl } from '../config/estudio.js'
+import Credibilidad from './Credibilidad.jsx'
 import './Hero.css'
 
 export default function Hero() {
@@ -50,6 +51,8 @@ export default function Hero() {
           </a>
         </div>
       </div>
+
+      <Credibilidad />
 
       <span className="hero__scroll" aria-hidden="true" />
     </section>

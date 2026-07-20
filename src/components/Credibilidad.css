@@ -1,40 +1,54 @@
 .credibilidad {
-  /* Transparente para que se vea el grano del body */
-  background: transparent;
-  padding-block: clamp(2.5rem, 6vw, 4rem);
-  border-bottom: 1px solid var(--linea);
+  position: absolute;
+  inset: auto 0 clamp(1.25rem, 3vw, 2.5rem);
+  z-index: 2;
+  width: 100%;
 }
 
 .credibilidad__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--sp-4) var(--sp-2);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
   margin: 0;
+  padding: clamp(1rem, 2.2vw, 1.5rem) clamp(0.75rem, 2.5vw, 2rem);
+  background: rgba(9, 23, 49, 0.72);
+  border: 1px solid rgba(201, 162, 75, 0.25);
+  border-radius: var(--radio-lg);
+  box-shadow: 0 24px 60px rgba(3, 10, 24, 0.24);
+  backdrop-filter: blur(16px);
 }
 
 .cifra {
   position: relative;
-  padding-left: var(--sp-3);
-  /* Filete dorado a la izquierda de cada dato */
-  border-left: 1px solid var(--linea);
+  min-width: 0;
+  padding-inline: clamp(0.7rem, 2.5vw, 2rem);
+  text-align: center;
+  border-left: 1px solid rgba(247, 244, 239, 0.15);
 }
+
+.cifra:first-child { border-left: 0; }
+
 .cifra::before {
   content: '';
   position: absolute;
-  left: -1px; top: 0;
-  width: 1px; height: 28px;
+  left: 50%;
+  bottom: -0.35rem;
+  width: 24px;
+  height: 1px;
   background: var(--dorado);
+  transform: translateX(-50%);
 }
 
 .cifra__valor {
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-size: clamp(1.75rem, 3.5vw, 2.65rem);
   font-weight: 500;
   line-height: 1;
-  color: var(--tinta);
+  color: var(--fondo);
   font-variant-numeric: tabular-nums;
 }
+
 .cifra__sufijo {
   color: var(--dorado);
   font-size: 0.55em;
@@ -42,16 +56,38 @@
 }
 
 .cifra__etiqueta {
-  margin-top: var(--sp-1);
+  margin-top: 0.45rem;
   font-size: var(--fs-micro);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gris);
+  color: var(--gris-claro);
 }
 
-@media (min-width: 760px) {
+@media (max-width: 899px) {
+  .hero .credibilidad {
+    position: relative;
+    inset: auto;
+    margin-top: auto;
+    padding-top: var(--sp-4);
+  }
+
   .credibilidad__grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--sp-4);
+    padding: 0.9rem 0.35rem 1rem;
+    background: rgba(9, 23, 49, 0.64);
+    backdrop-filter: blur(12px);
+  }
+
+  .cifra {
+    padding-inline: 0.45rem;
+  }
+
+  .cifra__valor {
+    font-size: clamp(1.55rem, 8vw, 2.15rem);
+  }
+
+  .cifra__etiqueta {
+    font-size: 0.62rem;
+    line-height: 1.35;
+    letter-spacing: 0.08em;
   }
 }

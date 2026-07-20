@@ -1,15 +1,27 @@
+import { useEffect, useState } from 'react'
 import { whatsappUrl } from '../config/estudio.js'
 import './WhatsappFloat.css'
 
-/** Botón flotante de WhatsApp: verde, redondo y visible desde el inicio. */
+/** Aparece al avanzar: el hero ya ofrece la acción principal. */
 export default function WhatsappFloat() {
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const alScroll = () => setVisible(window.scrollY > Math.min(window.innerHeight * 0.45, 420))
+    alScroll()
+    window.addEventListener('scroll', alScroll, { passive: true })
+    return () => window.removeEventListener('scroll', alScroll)
+  }, [])
+
   return (
     <a
-      className="wsp"
+      className={`wsp ${visible ? 'wsp--visible' : ''}`}
       href={whatsappUrl()}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Escribir por WhatsApp"
+      aria-hidden={!visible}
+      tabIndex={visible ? undefined : -1}
     >
       {/* Aro que late hacia afuera */}
       <span className="wsp__pulso" aria-hidden="true" />
